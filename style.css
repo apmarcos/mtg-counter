@@ -1,0 +1,582 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yusei Magic", monospace;
+    font-size: 1.3125rem;
+    background: #333;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+main {
+    font-size: 5rem;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-areas: 
+    "one two"
+    "three three";
+}
+
+::-webkit-scrollbar {
+    width: .75em;
+    height: .75em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e83f6f;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+    background: #333;
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background:#333;
+}
+
+::-webkit-scrollbar-button:decrement {
+    height: 1em;
+    background-image: url("images/scrollbar-up.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e83f6f;
+    border-bottom: 3px solid #333;
+}
+
+::-webkit-scrollbar-button:increment {
+    height: 1em;
+    background-image: url("images/scrollbar-down.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e83f6f;
+    border-top: 3px solid #333;
+}
+
+/* PLAYER BOARDS START */
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.playerA-board {
+    grid-area: one;
+}
+
+.playerB-board {
+    grid-area: two;
+}
+
+.dice-pocket {
+    grid-area: three;
+}
+
+.playerA-board,
+.playerB-board {
+    width: 100%;
+    padding: .5em 0;
+    display: grid;
+    place-items: center;
+}
+
+.playerA-board {
+    border-right: .1em solid #bcb8b1;
+}
+
+.playerA-counter,
+.playerB-counter {
+    margin: .25em auto;
+    padding: .25em;
+    width: 5em;
+    height: 2em;
+    background: #bcb8b1;
+    color: #333;
+    border-radius: .25em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-btn {
+    padding: .25em;
+    font-family: "Yusei Magic";
+    font-size: 5rem;
+    font-weight: 700;
+    background: #333;
+    color: #bcb8b1;
+    border: none;
+    border-radius: 10px;
+}
+
+.player-btn:focus,
+.player-btn:hover {
+    cursor: pointer;
+}
+/* PLAYER BOARDS START */
+/* ************************************* */
+/* MANA SECTION START */
+.mana-colors {
+    width: 90%;
+    margin: 0 auto;
+    padding: .25em;
+    font-size: 1rem;
+    letter-spacing: .35em;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.mana-container {
+    width: 7em;
+    margin-inline: -.75em;
+    padding: .5em;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    opacity: .25;
+}
+
+.active-mana {
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+
+.mana-img {
+    width: 3em;
+}
+
+.mana-name {
+    margin-top: .75em;
+    margin-bottom: .2em;
+}
+
+.mana-container:focus,
+.mana-container:hover {
+    cursor: pointer;
+}
+/* MANA SECTION END */
+/* ************************************* */
+/* DICE/COIN SECTION START */
+.dice-pocket {
+    max-width: 100%;
+    min-height: 4em;
+    padding: .25em;
+    background: #bcb8b1;
+    font-size: 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.dice-wrapper,
+.coin-wrapper {
+    width: 100%;
+    max-height: 4em;
+    
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.dice-four,
+.dice-six,
+.dice-twenty {
+    width: 35%;
+    height: 40vh;
+    margin: 0 auto;
+    margin-bottom: -.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e83f6f;
+}
+
+.dice-four {
+    background-image: url("images/dice-four.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+}
+
+.dice-six {
+    background-image: url("images/dice-six.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dice-twenty {
+    background-image: url("images/dice-twenty.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dice-animation {
+    animation: rollAnimation 1s ease;
+  }
+  
+@keyframes rollAnimation {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    } 100% {
+        opacity: 1; 
+        transform: scale(1);
+    } 
+}
+
+.dice-btn,
+.flip-btn {
+    width: 10em;
+    height: 10vh;
+    margin: 0 auto;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: "Yusei Magic", monospace;
+    font-weight: 800;
+    font-size: .75rem;
+    letter-spacing: .35em;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: #bcb8b1;
+}
+
+.flip-btn {
+    height: 5vh;
+    padding: .25em;
+}
+
+.coin {
+    height: 5em;
+    position: relative;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heads,
+.tails {
+    position: absolute;
+    backface-visibility: hidden; 
+}
+
+.tails {
+    transform: rotateX(180deg);
+}
+
+.inside-heads,
+.inside-tails {
+    width: 2em;
+    height: 2em;
+}
+
+.inside-heads {
+    background-image: url("images/dragon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.inside-tails {
+    background-image: url("images/bonfire.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@keyframes flip-tails {
+    0% {
+      transform: rotateX(0);
+    } 100% {
+      transform: rotateX(900deg);
+    }
+  }
+  
+  @keyframes flip-heads {
+    0% {
+      transform: rotateX(0);
+    } 100% {
+      transform: rotateX(1080deg);
+    }
+  }
+
+  .flip-btn:disabled {
+    background: #e83f6f;
+  }
+
+/* DICE/COIN SECTION END */
+/* ************************************* */
+/* FOOTER SECTION START */
+
+footer {
+    text-align: center;
+    color: #bcb8b1;
+    font-size: 1rem;
+    font-style: oblique;
+    letter-spacing: .25em;
+}
+
+p > a {
+    color: #e83f6f;
+    text-decoration: none;
+}
+
+p > a:focus,
+p > a:hover {
+    opacity: .75;
+}
+
+/* FOOTER SECTION END */
+/* ************************************* */
+/* Media Query START */
+
+/* go from side to side to top to bottom*/
+/*
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+*/
+
+@media screen and (min-width: 800px) and (max-width: 1500px) {
+
+    main {
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "one"
+        "three"
+        "two";
+    }
+
+    .playerA-board,
+    .playerB-board {
+        height: 4.5em;
+    }
+    
+    .playerA-board,
+    .playerB-board,
+    .player-btn {
+        font-size: 3rem;
+        padding: .25em;
+    }
+
+    .playerA-board {
+        grid-area: one;
+    }
+    
+    .playerB-board {
+        grid-area: two;
+    }
+
+
+    .playerA-board,
+    .playerB-board {
+        margin-inline: 1em;
+        border: none;
+        display: flex;
+    }
+
+    .mana-colors {
+        max-width: 50%;
+        grid-template-columns: repeat(3, 3fr);
+        gap: .75em;
+    }
+    
+    .mana-container {
+        width: 10em;
+        font-size: .5rem;
+    }
+
+    .dice-pocket {
+        min-height: 2.5em;
+        padding: .2em;
+        grid-area: three;
+    }
+
+    .dice-wrapper,
+    .coin-wrapper {
+        min-height: 4em;
+        font-size: 2rem;
+    }
+
+    .dice-btn,
+    .coin-btn {
+        font-size: .75rem;
+    }
+
+    footer {
+        font-size: .75rem;
+        border-top: 5px solid #e83f6f;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 799px) {
+
+    main {
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        grid-template-areas: 
+        "one one three"
+        "two two three";
+    }
+    
+    .playerA-board,
+    .playerB-board {
+        padding: .5em;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .playerA-board,
+    .player-btn {
+        font-size: 2rem;
+
+        grid-area: one;
+    }
+    
+    .playerB-board {
+        border-top: 5px solid #e83f6f;
+
+        grid-area: two;
+    }
+
+    .playerA-counter,
+    .playerB-counter {
+        margin: 0 auto;
+    }
+
+    .mana-colors {
+        padding: .5em;
+        place-items: center;
+        grid-template-columns: repeat(2, 2fr);
+        gap: .25em;
+    }
+    
+    .mana-container {
+        width: 10em;
+        font-size: .5rem;
+    }
+    
+    .dice-pocket {
+        margin: 0;
+        padding: 0;
+        border-left: 5px solid #e83f6f;
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+        grid-area: three;
+    }
+
+    .dice-wrapper,
+    .coin-wrapper {
+        font-size: 1.5rem;
+    }
+
+    .dice-four,
+    .dice-six,
+    .dice-twenty {
+        width: 4em;
+    }
+
+    .inside-heads,
+    .inside-tails {
+        width: 4em;
+        height: 4em;
+    }
+
+    .dice-btn,
+    .coin-btn {
+        font-size: .75rem;
+    }
+
+    footer {
+        border-top: 5px solid #e83f6f;
+        font-size: .75rem;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
+    main {
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        grid-template-areas: 
+        "one one three"
+        "two two three";
+    }
+    
+    .playerA-board,
+    .playerB-board {
+        width: 100%;
+        padding: .5em;
+    }
+
+    .playerA-board,
+    .player-btn {
+        font-size: 2rem;
+        grid-area: one;
+    }
+    
+    .playerB-board {
+        border-top: 2px solid #bcb8b1;
+        grid-area: two;
+    }
+
+    .mana-colors {
+        grid-template-columns: repeat(2, 2fr);
+        gap: .5em;
+    }
+
+    .mana-container {
+        font-size: .5rem;
+    }
+    
+    .dice-pocket {
+        max-width: 90%;
+        height: 100vh;
+        border-left: 5px solid #333;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-area: three;
+    }
+
+    .dice-wrapper,
+    .coin-wrapper {
+        font-size: 1.5rem;
+    }
+
+    .dice-four,
+    .dice-six,
+    .dice-twenty {
+        width: 80%;
+    }
+
+    .dice-btn,
+    .coin-btn {
+        font-size: .75rem;
+    }
+
+}
+
+
+
+/* Media Query END */

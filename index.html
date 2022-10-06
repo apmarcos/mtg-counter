@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Itim&family=Source+Sans+Pro:wght@300;400;600;700;900&family=Yusei+Magic&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css"/>
+
+        <title>MTG Counter</title>
+    </head>
+
+    <body>
+        <main>
+
+             <!-- Life counter & mana: players A+B -->
+
+                <div class="playerA-board"> <!-- player A side: left and top -->
+                    
+                    <div class="playerA-counter flex"> <!-- start playerA life counter -->
+                        <button type="button" class="player-btn" id="playerA-decrease-btn">-</button>
+                        <p id="playerA-score">20</p>
+                        <button type="button" class="player-btn" id="playerA-increase-btn">+</button>
+                    </div> <!-- end playerA life counter -->
+
+                    <div class="mana-colors"> <!-- start playerA mana container: select mana being used, will change background color -->
+                       
+                        <div class="mana-container mana-green-container">
+                            <img class="mana-img" src="images/forest-green.png" alt="">
+                            <p class="mana-name" id="green">FOREST</p>
+                        </div>
+                        <div class="mana-container mana-white-container">
+                            <img class="mana-img" src="images/plains-white.png" alt="">
+                            <p class="mana-name" id="white">PLAINS</p>
+                        </div>
+                        <div class="mana-container mana-blue-container">
+                            <img class="mana-img" src="images/island-blue.png" alt="">
+                            <p class="mana-name" id="blue">ISLAND</p>
+                        </div>
+                        <div class="mana-container mana-black-container">
+                            <img class="mana-img" src="images/swamp-black.png" alt="">
+                            <p class="mana-name" id="black">SWAMP</p>
+                        </div>
+                        <div class="mana-container mana-red-container">
+                            <img class="mana-img" src="images/mountain-red.png" alt="">
+                            <p class="mana-name" id="red">MOUNTAIN</p>
+                        </div>
+
+                    </div> <!-- end of playerA mana container -->
+
+                </div> <!-- end of playerA board -->
+                <!------------------------------------------------------------------->
+                <div class="playerB-board"> <!-- playerB: right and bottom -->
+                    
+                    <div class="playerB-counter flex"> <!-- start playerB life counter -->
+                        <button type="button" class="player-btn" id="playerB-decrease-btn">-</button>
+                        <p id="playerB-score">20</p>
+                        <button type="button" class="player-btn" id="playerB-increase-btn">+</button>
+                    </div> <!-- end playerB life counter -->
+
+                    <div class="mana-colors flex"> <!-- start playerB mana container: select mana being used, will change background color -->
+
+                        <div class="mana-container mana-green-container">
+                            <img class="mana-img" src="images/forest-green.png" alt="">
+                            <p class="mana-name" id="green">FOREST</p>
+                        </div>
+                        <div class="mana-container mana-white-container">
+                            <img class="mana-img" src="images/plains-white.png" alt="">
+                            <p class="mana-name" id="white">PLAINS</p>
+                        </div>
+                        <div class="mana-container mana-blue-container">
+                            <img class="mana-img" src="images/island-blue.png" alt="">
+                            <p class="mana-name" id="blue">ISLAND</p>
+                        </div>
+                        <div class="mana-container mana-black-container">
+                            <img class="mana-img" src="images/swamp-black.png" alt="">
+                            <p class="mana-name" id="black">SWAMP</p>
+                        </div>
+                        <div class="mana-container mana-red-container">
+                            <img class="mana-img" src="images/mountain-red.png" alt="">
+                            <p class="mana-name" id="red">MOUNTAIN</p>
+                        </div>
+
+                    </div> <!-- end of playerB mana container -->
+
+                </div> <!-- end of playerB board -->
+
+             <!-- END Life counter & mana: players A+B -->
+            <!-- ------------------------------------------------------- -->
+            <div class="dice-pocket"> <!-- dice/coin section START -->
+                <!-- dice section START -->
+                <div class="dice-wrapper dw-four">
+                    <div class="dice-four">4</div>
+                    <button type="button" class="dice-btn" id="dice-four-btn">Roll D4</button>
+                </div>
+
+                <div class="dice-wrapper dw-six">
+                    <div class="dice-six">6</div>
+                    <button type="button" class="dice-btn" id="dice-six-btn">Roll d6</button>
+                </div>
+
+                <div class="dice-wrapper dw-twenty">
+                    <div class="dice-twenty">20</div>
+                    <button type="button" class="dice-btn" id="dice-twenty-btn">Roll d20</button>
+                </div><!-- dice section END -->
+                <!-- ------------------------------------------------------- -->
+                <div class="coin-wrapper">
+                    <div class="coin"> <!-- coin section START -->
+                        
+                        <div class="heads">
+                            <div class="inside-heads"></div>
+                        </div>
+                        
+                        <div class="tails">
+                            <div class="inside-tails"></div>
+                        </div>
+
+                    </div>
+                    <button type="button" class="flip-btn">FLIP COIN</button>
+                </div>
+                <!-- coin section END -->
+            </div>
+            <!-- dice/coin section END -->
+        </main>
+
+        <footer>
+            <p translate="no">Life Counter for: <a href="https://magic.wizards.com/en">Magic The Gathering</a></p>
+            <p>Icons from <a href="https://icons8.com/">icons8</a></p>
+        </footer>
+
+        <script src="main.js"></script>
+    </body>
+
+
+
+</html>
